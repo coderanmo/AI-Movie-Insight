@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =====================================================
+   THEME VARIABLES
+   Toggle by adding/removing 'dark' class on <html>
+   ===================================================== */
+
+/* Light mode (default) */
+:root {
+  --bg-primary: #f1f5f9;
+  /* slate-100 */
+  --bg-secondary: #e2e8f0;
+  /* slate-200 */
+  --text-primary: #0f172a;
+  /* slate-900 */
+  --text-secondary: #475569;
+  /* slate-600 */
+  --blob-purple: rgba(168, 85, 247, 0.12);
+  --blob-blue: rgba(59, 130, 246, 0.12);
+  --card-bg: rgba(255, 255, 255, 0.6);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.7);
+  --nav-border: rgba(0, 0, 0, 0.08);
+}
+
+/* Dark mode */
+html.dark {
+  --bg-primary: #020617;
+  /* slate-950 */
+  --bg-secondary: #0f172a;
+  /* slate-900 */
+  --text-primary: #f8fafc;
+  /* slate-50 */
+  --text-secondary: #94a3b8;
+  /* slate-400 */
+  --blob-purple: rgba(88, 28, 135, 0.30);
+  --blob-blue: rgba(30, 58, 138, 0.30);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.10);
+  --nav-bg: rgba(0, 0, 0, 0.20);
+  --nav-border: rgba(255, 255, 255, 0.10);
+}
+
+/* =====================================================
+   BASE STYLES
+   ===================================================== */
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.025em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Animated background blobs */
+  .bg-blob-purple {
+    background-color: var(--blob-purple);
+    transition: background-color 0.3s ease;
+  }
+
+  .bg-blob-blue {
+    background-color: var(--blob-blue);
+    transition: background-color 0.3s ease;
+  }
+
+  /* Navbar */
+  .theme-nav {
+    background-color: var(--nav-bg);
+    border-color: var(--nav-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Glass cards respond to theme */
+  .theme-card {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Text secondary */
+  .theme-text-secondary {
+    color: var(--text-secondary);
+  }
+}
